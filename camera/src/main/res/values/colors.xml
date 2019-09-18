@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <!--窗口背景  -->
+    <color name="blackColor">#333333</color>
+    <!-- 半透明 -->
+    <color name="transparent_half">#60000000</color>
+    <color name="line_background">#f2f2f2</color>
+    <!--蓝色-->
+    <color name="blue">#2486FF</color>
+</resources>

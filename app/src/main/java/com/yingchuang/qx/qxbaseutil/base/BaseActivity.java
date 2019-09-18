@@ -35,6 +35,7 @@ import com.yingchuang.qx.qxbaseutil.httpUtil.Refresh;
 import com.yingchuang.qx.qxbaseutil.httpUtil.UrlConfig;
 import com.yingchuang.qx.qxbaseutil.listener.ScreenListener;
 import com.yingchuang.qx.qxbaseutil.statusbar.SystemBarUtil;
+import com.zhy.m.permission.MPermissions;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -92,7 +93,6 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
         x.view().inject(this);
         ButterKnife.bind(this);
 
-
         /*将activity加入栈中*/
         gson = new Gson();
         activityManager = ActivityManager.getInstance();
@@ -114,7 +114,6 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
     }
 
 
-
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         if (newConfig.orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
@@ -130,7 +129,6 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
     protected void initData() {
 
     }
-
 
 
     /**
@@ -256,11 +254,10 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
     }
 
 
-
-
     /*权限处理问题*/
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        MPermissions.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
@@ -276,12 +273,6 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
         springView.setMoveTime(500);
         springView.setMoveTimeOver(500);
     }
-
-
-
-
-
-
 
 
     /**
@@ -327,14 +318,14 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
     /**
      * 获得权限
      */
-    protected void requestContactSuccess() {
+    protected void onRequestSuccess() {
 
     }
 
     /**
      * 未获得权限
      */
-    protected void requestContactFailed() {
+    protected void onRequestFailed() {
 
     }
 
@@ -374,9 +365,6 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
         }, 500);
 
     }
-
-
-
 
 
     //标记APP是否从后台再次进入的flag
@@ -419,8 +407,6 @@ public class BaseActivity extends AppCompatActivity implements Refresh, SpringVi
         EventBus.getDefault().unregister(this);
 
     }
-
-
 
 
 }

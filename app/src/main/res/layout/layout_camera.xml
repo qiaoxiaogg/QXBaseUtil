@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/include_tool_bar" />
+
+    <com.jianjin.camera.widget.CameraContainer
+        android:id="@+id/camera_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_bar" />
+
+    <RelativeLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/blackColor">
+
+        <TextView
+            android:id="@+id/camera_tv_switch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45dp"
+            android:visibility="gone"
+            android:background="@mipmap/camera_ic_switch" />
+
+        <ImageView
+            android:id="@+id/camera_iv_take"
+            android:layout_width="@dimen/x110"
+            android:layout_height="@dimen/x110"
+            android:layout_marginTop="@dimen/x34"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/camera_ic_take" />
+
+        <ImageView
+            android:id="@+id/camera_iv_picture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="45dp"
+            android:visibility="gone"
+            android:background="@mipmap/camera_ic_picture" />
+        <TextView
+            android:id="@+id/descption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/camera_iv_take"
+            android:layout_marginTop="@dimen/x20"
+            android:layout_marginBottom="@dimen/x20"
+            android:textSize="@dimen/x24"
+            android:textColor="#FEFEFE"
+            android:gravity="center"
+            android:text="将文件置于框内进行拍摄"
+            />
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blackColor_half"
+        android:layout_above="@+id/bottomLayout"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/white"
+        app:tabMode="scrollable"
+        app:tabIndicatorColor="@color/colorPrimary" />
+
+    <com.jianjin.camera.widget.CameraAreaView
+        android:id="@+id/area_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabLayout"
+        android:layout_below="@+id/tool_bar"
+        android:layout_marginLeft="@dimen/x24"
+        android:layout_marginTop="@dimen/x24"
+        android:layout_marginRight="@dimen/x24"
+        android:layout_marginBottom="@dimen/x24" />
+
+
+</RelativeLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/x98">
+
+    <View
+        android:id="@+id/tool_barView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x98"
+        android:background="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x98"
+        android:layout_alignBottom="@+id/tool_barView">
+
+        <RelativeLayout
+            android:id="@+id/tool_bar_left_relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="@dimen/x130">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/tool_bar_left_icon"
+                android:layout_width="@dimen/x48"
+                android:layout_height="@dimen/x48"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/x30"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/icon_back_black" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tool_bar_tx_right"
+            android:layout_width="@dimen/x130"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/x20"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/blackColor"
+            android:textSize="@dimen/x36"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/tool_bar_tx_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/x80"
+            android:layout_marginEnd="@dimen/x80"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/blackColor"
+            android:textSize="@dimen/x36"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/tool_bar_tx_center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxWidth="@dimen/x500"
+            android:maxLines="1"
+            android:textColor="@color/blackColor"
+            android:textSize="@dimen/x36" />
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/tool_bar_right_relativeLayout"
+            android:layout_width="@dimen/x120"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/tool_bar_right_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="centerCrop" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/tool_bar_right_relativeLayout_l"
+            android:layout_width="@dimen/x120"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x120"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/tool_bar_right_icon_l"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/x20" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

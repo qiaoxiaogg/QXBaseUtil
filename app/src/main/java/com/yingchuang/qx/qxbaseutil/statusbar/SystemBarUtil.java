@@ -11,16 +11,14 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.design.widget.TabLayout;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.yingchuang.qx.qxbaseutil.R;
 
+import org.xutils.common.util.LogUtil;
 import org.xutils.common.util.MD5;
 
 import java.lang.reflect.Field;
@@ -197,12 +195,12 @@ public class SystemBarUtil {
                 BACKGROUND=400 EMPTY=500 FOREGROUND=100
                 GONE=1000 PERCEPTIBLE=130 SERVICE=300 ISIBLE=200
                  */
-                Log.i(context.getPackageName(), "此appimportace =" + appProcess.importance + ",context.getClass().getName()=" + context.getClass().getName());
+                LogUtil.d("此appimportace =" + appProcess.importance + ",context.getClass().getName()=" + context.getClass().getName());
                 if (appProcess.importance != ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
-                    Log.i(context.getPackageName(), "处于后台" + appProcess.processName);
+                    LogUtil.d("处于后台" + appProcess.processName);
                     return true;
                 } else {
-                    Log.i(context.getPackageName(), "处于前台" + appProcess.processName);
+                    LogUtil.d("处于前台" + appProcess.processName);
                     return false;
                 }
             }

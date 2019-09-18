@@ -10,6 +10,8 @@
     <color name="transparent">#00000000</color>
     <!--窗口背景  -->
     <color name="blackColor">#333333</color>
+    <!--窗口背景半透明-->
+    <color name="blackColor_half">#77333333</color>
     <!-- 半透明 -->
     <color name="transparent_half">#60000000</color>
     <color name="line_background">#f2f2f2</color>
