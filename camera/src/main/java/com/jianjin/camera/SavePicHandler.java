@@ -81,7 +81,8 @@ public class SavePicHandler extends Handler {
                 + ".jpg";
 
         Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
-
+        //先进行等比压缩 宽1240， 高等比例，a4纸宽和高的比例为7：10
+        bmp = compressBitmap(bmp, false, 1772, 1240);
         bmp = rotateReversalBitmap(bmp, isBackCamera);
         boolean isSuccess = save(bmp, mImagePath);
 
@@ -137,7 +138,7 @@ public class SavePicHandler extends Handler {
         BufferedOutputStream bos = null;
         try {
             bos = new BufferedOutputStream(new FileOutputStream(file));
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bos); // 向缓冲区之中压缩图片
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos); // 向缓冲区之中压缩图片
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,6 +153,32 @@ public class SavePicHandler extends Handler {
                 }
             }
         }
+    }
+
+    /**
+     * 等比压缩（宽高等比缩放）
+     *
+     * @param bitmap
+     * @param needRecycle
+     * @param targetWidth
+     * @param targeHeight
+     * @return
+     */
+    public Bitmap compressBitmap(Bitmap bitmap, boolean needRecycle, int targetWidth, int targeHeight) {
+        float sourceWidth = bitmap.getWidth();
+        float sourceHeight = bitmap.getHeight();
+
+        float scaleWidth = targetWidth / sourceWidth;
+        float scaleHeight = targeHeight / sourceHeight;
+
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight); //长和宽放大缩小的比例
+        Bitmap bm = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        if (needRecycle) {
+            bitmap.recycle();
+        }
+        bitmap = bm;
+        return bitmap;
     }
 
     /**
